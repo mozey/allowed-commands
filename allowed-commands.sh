@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Specify allowed commands in SSH authorized_keys file
+# https://github.com/mozey/allowed-commands
+
 set -u # exit on undefined variable
 SSH_ORIGINAL_COMMAND=${SSH_ORIGINAL_COMMAND}
 
