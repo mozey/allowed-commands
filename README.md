@@ -7,8 +7,7 @@ Specify allowed commands in SSH authorized_keys file
 
 Copy the scripts to `~/.ssh`
 ```bash
-cp allowed-commands.sh ~/.ssh/
-cp allowed-commands.env ~/.ssh/
+scp allowed-commands.* your.server.com:/path/to/.ssh
 ```
 
 Specify regular expressions to match allowed commands
@@ -18,6 +17,7 @@ vi ~/.ssh/allowed-commands.env
 
 Edit `~/.ssh/authorized_keys`
 
+**WARNING** Do not restrict same key you use for SSH logins!
 Prepend key to restrict with `command="/path/to/.ssh/allowed-commands.sh" `
 
 
