@@ -5,7 +5,7 @@ SSH_ORIGINAL_COMMAND=${SSH_ORIGINAL_COMMAND}
 
 # These are the allowed commands
 # shellcheck disable=SC1091
-source allowed-commands.env
+source "${HOME}"/.ssh/allowed-commands.env
 
 for (( i = 0 ; i < ${#ALLOWED_COMMANDS[@]} ; i = i + 1 )) do
     REGEX=${ALLOWED_COMMANDS[$i]}
