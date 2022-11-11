@@ -23,6 +23,7 @@ Prepend key to restrict with `command="/path/to/.ssh/allowed-commands.sh" `
 
 ## Testing
 
+The script can be tested locally like this
 ```bash
 SSH_ORIGINAL_COMMAND="ls -la" ./allowed-commands.sh
 # ...
@@ -35,6 +36,16 @@ SSH_ORIGINAL_COMMAND="ls" ./allowed-commands.sh
 # Forbidden
 SSH_ORIGINAL_COMMAND="pwd" ./allowed-commands.sh
 # Forbidden
+```
+
+**WARNING** The example regex in `allowed-commands.env` allows listing any directory or file (readable by the user for which `authorized_keys` was set)
+```bash
+ssh example.com "ls -la /home"
+# ...
+ssh example.com "ls -la /root"
+# ls: cannot open directory '/root': Permission denied
+ssh example.com "ls -lah /var/log/syslog"
+# ...
 ```
 
 
